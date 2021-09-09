@@ -51,4 +51,9 @@ app.delete("/:id", userMid, (req, res) => {
 	}
 });
 
+app.delete("/all", userMid, (req, res) => {
+	buckets[req.headers.bucket] = [];
+	res.send(buckets[req.headers.bucket]);
+});
+
 const server = app.listen(port, () => console.log(`Listening on port ${port}`));
